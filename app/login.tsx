@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, Pressable, Text } from 'react-native';
+import { Alert, friendly } from '@/lib/dialog';
+import { Pressable, Text } from 'react-native';
 import { useRouter } from 'expo-router';
 import AuthShell from '@/components/AuthShell';
 import { Button, Field } from '@/components/ui';
@@ -18,7 +19,7 @@ export default function Login() {
     const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
     if (error) {
       setBusy(false);
-      return Alert.alert('লগইন ব্যর্থ', error.message);
+      return Alert.alert('লগইন ব্যর্থ', friendly(error.message));
     }
     const { data: p } = await supabase.from('profiles').select('role, approved').eq('id', data.user.id).maybeSingle();
     if (p && !p.approved) {

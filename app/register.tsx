@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, Pressable, Switch, Text, View } from 'react-native';
+import { Alert, friendly } from '@/lib/dialog';
+import { Pressable, Switch, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import AuthShell from '@/components/AuthShell';
 import { Button, Field } from '@/components/ui';
@@ -24,7 +25,7 @@ export default function Register() {
       options: { data: { full_name: name.trim(), want_teacher: teacher } },
     });
     setBusy(false);
-    if (error) return Alert.alert('রেজিস্ট্রেশন ব্যর্থ', error.message);
+    if (error) return Alert.alert('রেজিস্ট্রেশন ব্যর্থ', friendly(error.message));
 
     if (teacher) {
       await supabase.auth.signOut();

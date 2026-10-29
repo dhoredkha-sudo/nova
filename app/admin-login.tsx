@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, Text, View } from 'react-native';
+import { Alert, friendly } from '@/lib/dialog';
+import { Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AuthShell from '@/components/AuthShell';
 import { Button, Field } from '@/components/ui';
@@ -17,7 +18,7 @@ export default function AdminLogin() {
     const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
     if (error) {
       setBusy(false);
-      return Alert.alert('লগইন ব্যর্থ', error.message);
+      return Alert.alert('লগইন ব্যর্থ', friendly(error.message));
     }
     // রোল সার্ভারের ডাটাবেস থেকে যাচাই হয় — ক্লায়েন্টে বদলানো যায় না
     const { data: p } = await supabase.from('profiles').select('role').eq('id', data.user.id).maybeSingle();

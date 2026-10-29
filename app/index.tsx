@@ -16,7 +16,7 @@ export default function Welcome() {
   return (
     <View style={{ flex: 1, backgroundColor: '#EAF3FF' }}>
       <LinearGradient colors={['#4A92F8', '#A8D1FC', '#EAF3FF']} style={StyleSheet.absoluteFill} />
-      <Scene width={width} height={height * 0.62} style={{ position: 'absolute', bottom: height * 0.3 }} />
+      <Scene mode="full" width={width} height={height * 0.66} style={{ position: 'absolute', bottom: height * 0.26 }} />
 
       <View style={{ paddingTop: insets.top + 16, paddingHorizontal: 24 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>

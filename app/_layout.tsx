@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider, useAuth } from '@/lib/auth';
 import { Loading } from '@/components/ui';
+import { DialogHost } from '@/lib/dialog';
 
 function Gate() {
   const { session, profile, loading } = useAuth();
@@ -33,6 +34,7 @@ function Gate() {
     <>
       <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false, animation: 'fade' }} />
+      <DialogHost />
     </>
   );
 }
