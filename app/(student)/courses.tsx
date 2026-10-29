@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, Linking, Pressable, RefreshControl, ScrollView, Text, View } from 'react-native';
+import { Alert } from '@/lib/dialog';
+import { Linking, Pressable, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
